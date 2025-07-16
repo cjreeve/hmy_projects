@@ -1,0 +1,12 @@
+<% content_for :title, "Editing dummy" %>
+
+<h1>Editing dummy</h1>
+
+<%= render "form", dummy: @dummy %>
+
+<br>
+
+<div>
+  <%= link_to "Show this dummy", @dummy %> |
+  <%= link_to "Back to dummies", dummies_path %>
+</div>

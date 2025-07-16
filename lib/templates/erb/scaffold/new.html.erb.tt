@@ -1,0 +1,9 @@
+<%% content_for :title, "New <%= human_name.downcase %>" %>
+
+<h1 class="text-2xl font-bold mb-6">New <%%= <%= singular_table_name %>_class.model_name.human %></h1>
+
+<div class="bg-white rounded shadow p-6 mb-4">
+  <%%= render 'form', <%= singular_table_name %>: @<%= singular_table_name %> %>
+</div>
+
+<%%= link_to 'Back', <%= index_helper %>_path, class: "bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded" %>

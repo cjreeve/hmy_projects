@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @dummy %>
+
+<div>
+  <%= link_to "Edit this dummy", edit_dummy_path(@dummy) %> |
+  <%= link_to "Back to dummies", dummies_path %>
+
+  <%= button_to "Destroy this dummy", @dummy, method: :delete %>
+</div>

@@ -1,0 +1,34 @@
+<p style="color: green"><%%= notice %></p>
+
+<%% content_for :title, "<%= human_name.pluralize %>" %>
+
+<h1 class="text-2xl font-bold mb-6"><%%= plural_table_name.titleize %></h1>
+
+<div class="mb-4">
+  <%%= link_to 'New <%= singular_table_name.titleize %>', new_<%= singular_table_name %>_path, class: "bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded" %>
+</div>
+
+<table class="min-w-full bg-white border border-gray-200 rounded shadow">
+  <thead class="bg-gray-100">
+    <tr>
+<% attributes.each do |attribute| -%>
+      <th class="py-2 px-4 border-b text-left"><%%= <%= singular_table_name %>_class.human_attribute_name(:<%= attribute.name %>) %></th>
+<% end -%>
+      <th class="py-2 px-4 border-b text-left">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+      <tr class="hover:bg-gray-50">
+<% attributes.each do |attribute| -%>
+        <td class="py-2 px-4 border-b"><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+<% end -%>
+        <td class="py-2 px-4 border-b">
+          <%%= link_to 'Show', <%= singular_table_name %>, class: "text-blue-600 hover:underline mr-2" %>
+          <%%= link_to 'Edit', edit_<%= singular_table_name %>_path(<%= singular_table_name %>), class: "text-yellow-600 hover:underline mr-2" %>
+          <%%= link_to 'Destroy', <%= singular_table_name %>, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-red-600 hover:underline" %>
+        </td>
+      </tr>
+    <%% end %>
+  </tbody>
+</table>
