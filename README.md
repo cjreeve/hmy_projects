@@ -1,24 +1,9 @@
-# README
+# Example Project Management Tool
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Task
 
-Things you may want to cover:
+Use Ruby on Rails to build a project conversation history. A user should be able to:
+- leave a comment
+- change the status of the project
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The project conversation history should list comments and changes in status. 
