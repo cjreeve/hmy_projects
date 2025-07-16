@@ -5,8 +5,8 @@ Feature: Project listing
   I want to visit the home page
   So that I can see a list of projects
 
-  @wip
   Scenario: Visiting the home page
     Given there are projects in the system
     When I visit the home page
-    Then I should see a list of projects 
+    Then I should see a list of projects
+    
