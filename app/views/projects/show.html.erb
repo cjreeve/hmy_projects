@@ -13,6 +13,29 @@
   </dl>
 </div>
 
+<h2 class="text-xl font-semibold mt-8 mb-2">Comments</h2>
+<% @project.comments.each do |comment| %>
+  <div class="border rounded p-2 mb-2">
+    <p><strong><%= comment.commenter_name %>:</strong></p>
+    <p><%= comment.details %></p>
+  </div>
+<% end %>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Add a comment</h3>
+<%= form_with(model: [@project, @comment], local: true) do |form| %>
+  <div class="mb-2">
+    <%= form.label :commenter_name, 'Name', class: 'block font-medium' %>
+    <%= form.text_field :commenter_name, class: 'border rounded w-full p-2' %>
+  </div>
+  <div class="mb-2">
+    <%= form.label :details, 'Comment', class: 'block font-medium' %>
+    <%= form.text_area :details, class: 'border rounded w-full p-2' %>
+  </div>
+  <div>
+    <%= form.submit 'Post Comment', class: 'bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded' %>
+  </div>
+<% end %>
+
 <div class="flex space-x-2">
   <%= link_to 'Edit', edit_project_path(@project), class: "bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded" %>
   <%= link_to 'Back', projects_path, class: "bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded" %>

@@ -10,3 +10,6 @@ Feature: Project listing
     When I visit the home page
     Then I should see a list of projects
     When I click on a project I should see the project description
+    Then I should see a comment field where a user can enter their name and comment
+    And I add the name "Collaborator" and the comment "Nice project" and click the Post Comment button
+    And I see my comment listed on the project page along with my name

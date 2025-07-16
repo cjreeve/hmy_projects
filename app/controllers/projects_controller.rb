@@ -8,6 +8,8 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1 or /projects/1.json
   def show
+    @project = Project.find(params[:id])
+    @comment = Comment.where(project: @project).new
   end
 
   # GET /projects/new
