@@ -9,4 +9,4 @@ Feature: Project listing
     Given there are projects in the system
     When I visit the home page
     Then I should see a list of projects
-    
+    When I click on a project I should see the project description
