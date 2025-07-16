@@ -1,0 +1,9 @@
+<% content_for :title, "Editing project" %>
+
+<h1 class="text-2xl font-bold mb-6">Edit <%= Project.model_name.human %></h1>
+
+<div class="bg-white rounded shadow p-6 mb-4">
+  <%= render 'form', project: @project %>
+</div>
+
+<%= link_to 'Back', projects_path, class: "bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded" %>
