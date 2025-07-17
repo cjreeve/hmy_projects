@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   resources :projects do
     resources :comments, only: [:create]
+    member do
+      post :proceed
+      post :done
+      post :restart
+    end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

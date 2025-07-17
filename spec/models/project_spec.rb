@@ -26,7 +26,7 @@ RSpec.describe Project, type: :model do
       project.proceed!
       project.complete!
       project.restart!
-      expect(project.aasm.current_state).to eq(:draft)
+      expect(project.aasm.current_state).to eq(:proceeding)
     end
 
     it 'does not allow invalid transitions' do

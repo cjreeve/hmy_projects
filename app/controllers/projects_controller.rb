@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[ show edit update destroy ]
+  before_action :set_project, only: %i[ show edit update destroy proceed done restart ]
 
   # GET /projects or /projects.json
   def index
@@ -59,14 +59,29 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def proceed
+    @project.proceed!
+    redirect_to @project, notice: 'Project proceeded to next state.'
+  end
+
+  def done
+    @project.complete!
+    redirect_to @project, notice: 'Project marked as done.'
+  end
+
+  def restart
+    @project.restart!
+    redirect_to @project, notice: 'Project restarted to proceeding.'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
-      @project = Project.find(params.expect(:id))
+      @project = Project.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.expect(project: [ :title, :description, :manager_name, :state ])
+      params.require(:project).permit(:title, :description, :manager_name)
     end
 end

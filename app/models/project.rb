@@ -15,7 +15,7 @@ class Project < ApplicationRecord
       transitions from: :proceeding, to: :done
     end
     event :restart do
-      transitions from: :done, to: :draft
+      transitions from: :done, to: :proceeding
     end
   end
 end

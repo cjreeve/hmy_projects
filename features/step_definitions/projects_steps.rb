@@ -82,4 +82,43 @@ end
 Then('I should see the project title and description') do
   expect(page).to have_content('Demo Project')
   expect(page).to have_content('A project created via Cucumber')
+end
+
+When('I should click on the Proceed button') do
+  click_button 'Proceed'
+end
+
+Then('I should see that the project state is proceeding') do
+  expect(page).to have_content(/proceeding/i)
+end
+
+Then('I should see a Done button') do
+  expect(page).to have_button('Done')
+end
+
+When('I click on the Done button') do
+  click_button 'Done'
+end
+
+Then('I see the state is done') do
+  expect(page).to have_content(/done/i)
+end
+
+When('I click Show on the project I created') do
+  within(:xpath, "//div[contains(., 'Demo Project')]") do
+    click_link('Show')
+  end
+end
+
+Then('I see the state is done and a button to {string} the state to {string}') do |button, state|
+  expect(page).to have_content(/done/i)
+  expect(page).to have_button(button)
+end
+
+Then('I should see a {string} button') do |label|
+  expect(page).to have_button(label)
+end
+
+When('I click on the {string} button') do |label|
+  click_button(label)
 end 

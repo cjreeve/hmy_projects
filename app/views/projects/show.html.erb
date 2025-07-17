@@ -36,6 +36,24 @@
   </div>
 <% end %>
 
+<hr class="my-4">
+
+<% if @project.may_proceed? %>
+  <%= form_with url: proceed_project_path(@project), method: :post, local: true do |f| %>
+    <%= f.submit 'Proceed project', class: 'bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded' %>
+  <% end %>
+<% elsif @project.may_complete? %>
+  <%= form_with url: done_project_path(@project), method: :post, local: true do |f| %>
+    <%= f.submit 'Complete project', class: 'bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded' %>
+  <% end %>
+<% elsif @project.may_restart? %>
+  <%= form_with url: restart_project_path(@project), method: :post, local: true do |f| %>
+    <%= f.submit 'Restart', class: 'bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded' %>
+  <% end %>
+<% end %>
+
+<br>
+
 <div class="flex space-x-2">
   <%= link_to 'Edit', edit_project_path(@project), class: "bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded" %>
   <%= link_to 'Back', projects_path, class: "bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded" %>

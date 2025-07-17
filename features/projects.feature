@@ -14,8 +14,14 @@ Feature: Project listing
     When I fill in the new project form fields and click on Create Project
     Then I should see the project title and description
     And I should see the project state is draft
+    Then I should click on the Proceed button
+    And I should see that the project state is proceeding
     Then I should see a comment field where a user can enter their name and comment
     And I add the name "Collaborator" and the comment "Nice project" and click the Post Comment button
     And I see my comment listed on the project page along with my name
     When I click on the Back link
     Then I see a list with the new project I created
+    When I click Show on the project I created
+    Then I should see a "Complete project" button
+    When I click on the "Complete project" button
+    Then I see the state is done and a button to "Restart" the state to "proceeding"
