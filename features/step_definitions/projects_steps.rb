@@ -138,4 +138,4 @@ end
 
 Then('I am shown the empty project list page with {string}') do |message|
   expect(page).to have_content(message)
-end 
+end

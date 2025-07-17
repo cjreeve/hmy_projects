@@ -3,4 +3,4 @@ class ProjectLog < ApplicationRecord
 
   validates :action, presence: true
   validates :project_id, presence: true
-end 
+end

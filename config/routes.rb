@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :projects do
-    resources :comments, only: [:create]
+    resources :comments, only: [ :create ]
     member do
       post :proceed
       post :done
@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root to: 'projects#index'
+  root to: "projects#index"
 end

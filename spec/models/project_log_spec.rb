@@ -19,4 +19,4 @@ RSpec.describe ProjectLog, type: :model do
     expect(log).not_to be_valid
     expect(log.errors[:action]).to be_present
   end
-end 
+end

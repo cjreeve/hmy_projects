@@ -61,17 +61,17 @@ class ProjectsController < ApplicationController
 
   def proceed
     @project.proceed!
-    redirect_to @project, notice: 'Project proceeded to next state.'
+    redirect_to @project, notice: "Project proceeded to next state."
   end
 
   def done
     @project.complete!
-    redirect_to @project, notice: 'Project marked as done.'
+    redirect_to @project, notice: "Project marked as done."
   end
 
   def restart
     @project.restart!
-    redirect_to @project, notice: 'Project restarted to proceeding.'
+    redirect_to @project, notice: "Project restarted to proceeding."
   end
 
   private

@@ -3,9 +3,9 @@ class CommentsController < ApplicationController
     @project = Project.find(params[:project_id])
     @comment = @project.comments.build(comment_params)
     if @comment.save
-      redirect_to @project, notice: 'Comment was successfully created.'
+      redirect_to @project, notice: "Comment was successfully created."
     else
-      render 'projects/show', status: :unprocessable_entity
+      render "projects/show", status: :unprocessable_entity
     end
   end
 

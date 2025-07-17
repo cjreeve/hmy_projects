@@ -61,6 +61,12 @@ bundle exec cucumber
 - The destroy feature requires a JS-capable driver (Selenium/Chrome is default).
 - No Rails UJS is required; destroy links use Turbo-native attributes.
 
+### Running the Linter (RuboCop)
+To check code style and linting (as in CI):
+```bash
+bin/rubocop -f github
+```
+
 ## Notes
 - **Destroy links:** Use `data-turbo-method="delete"` and `data-turbo-confirm` for modern Rails compatibility. No need for `method: :delete` or Rails UJS.
 - **Turbo:** The app is fully compatible with Turbo/Hotwire. No legacy JS required.
