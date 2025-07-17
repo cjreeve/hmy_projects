@@ -2,6 +2,8 @@ class Project < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :project_logs, dependent: :destroy
 
+  validates_presence_of :title, :manager_name
+
   # State machine
   include AASM
   aasm column: "state" do

@@ -83,6 +83,15 @@ RSpec.describe "/projects", type: :request do
     end
   end
 
+  describe "POST /create with invalid parameters" do
+    it "renders the new template with errors" do
+      post projects_url, params: { project: { title: "", manager_name: "" } }
+      expect(response.body).to include("There were errors with your submission")
+      expect(response.body).to include("Title can't be blank")
+      expect(response.body).to include("Manager name can't be blank")
+    end
+  end
+
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
