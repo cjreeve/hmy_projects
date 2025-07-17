@@ -121,4 +121,11 @@ end
 
 When('I click on the {string} button') do |label|
   click_button(label)
+end
+
+Then('I should see a list of recent state changes {string} and {string}') do |action1, action2|
+  within('#project-log-list') do
+    expect(page).to have_content(action1)
+    expect(page).to have_content(action2)
+  end
 end 

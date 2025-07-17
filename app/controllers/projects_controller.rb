@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1 or /projects/1.json
   def show
-    @project = Project.find(params[:id])
+    @project = Project.includes(:project_logs, :comments).find(params[:id])
     @comment = Comment.where(project: @project).new
   end
 

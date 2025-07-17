@@ -39,4 +39,24 @@ RSpec.describe Project, type: :model do
       expect(project.may_complete?).to be_falsey
     end
   end
+
+  describe 'ProjectLog logging' do
+    let(:project) { create(:project, title: 'Test', manager_name: 'Manager') }
+
+    it 'logs state changes' do
+      expect {
+        project.proceed!
+      }.to change { project.project_logs.where(action: 'state_changed').count }.by(1)
+      expect(project.project_logs.last.field).to eq('state')
+      expect(project.project_logs.last.from_value).to eq('draft')
+      expect(project.project_logs.last.to_value).to eq('proceeding')
+    end
+
+    it 'logs attribute changes' do
+      project.update!(title: 'New Title')
+      log = project.project_logs.where(action: 'attribute_changed', field: 'title').last
+      expect(log.from_value).to eq('Test')
+      expect(log.to_value).to eq('New Title')
+    end
+  end
 end

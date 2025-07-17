@@ -25,3 +25,4 @@ Feature: Project listing
     Then I should see a "Complete project" button
     When I click on the "Complete project" button
     Then I see the state is done and a button to "Restart" the state to "proceeding"
+    Then I should see a list of recent state changes "proceeding" and "done"

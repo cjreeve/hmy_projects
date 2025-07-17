@@ -58,3 +58,17 @@
   <%= link_to 'Edit', edit_project_path(@project), class: "bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded" %>
   <%= link_to 'Back', projects_path, class: "bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded" %>
 </div>
+
+<hr class="my-4" id="project-log-separator">
+<h2 class="text-lg font-semibold mt-6 mb-2">Project Log</h2>
+<ul class="mb-4" id="project-log-list">
+  <% @project.project_logs.order(created_at: :desc).each do |log| %>
+    <li>
+      <strong><%= log.created_at.strftime('%Y-%m-%d %H:%M:%S') %></strong>:
+      <%= log.action %>
+      <% if log.field.present? %>
+        (<%= log.field %>: <%= log.from_value %> → <%= log.to_value %>)
+      <% end %>
+    </li>
+  <% end %>
+</ul>
