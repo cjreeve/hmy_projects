@@ -3,6 +3,6 @@ FactoryBot.define do
     title { "MyString" }
     description { "MyText" }
     manager_name { "MyString" }
-    state { "MyString" }
+    state { "draft" }
   end
 end

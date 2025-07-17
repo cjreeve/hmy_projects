@@ -13,6 +13,7 @@ Feature: Project listing
     Then I should see I should see a New Project title
     When I fill in the new project form fields and click on Create Project
     Then I should see the project title and description
+    And I should see the project state is draft
     Then I should see a comment field where a user can enter their name and comment
     And I add the name "Collaborator" and the comment "Nice project" and click the Post Comment button
     And I see my comment listed on the project page along with my name

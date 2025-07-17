@@ -45,6 +45,10 @@ Then('I should see the project title and description and a state of Draft') do
   # State check removed for now
 end
 
+Then('I should see the project state is draft') do
+  expect(page).to have_content(/draft/i)
+end
+
 Then('I should see a list of projects') do
   expect(page).to have_content('Project Alpha')
   expect(page).to have_content('Project Beta')
