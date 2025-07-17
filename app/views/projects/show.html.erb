@@ -5,7 +5,7 @@
     <dt class="font-semibold text-gray-700"><%= Project.human_attribute_name(:title) %></dt>
     <dd class="mb-4 text-gray-900"><%= @project.title %></dd>
     <dt class="font-semibold text-gray-700"><%= Project.human_attribute_name(:description) %></dt>
-    <dd class="mb-4 text-gray-900"><%= @project.description %></dd>
+    <dd class="mb-4 text-gray-600"><%= markdown(@project.description) %></dd>
     <dt class="font-semibold text-gray-700"><%= Project.human_attribute_name(:manager_name) %></dt>
     <dd class="mb-4 text-gray-900"><%= @project.manager_name %></dd>
     <dt class="font-semibold text-gray-700"><%= Project.human_attribute_name(:state) %></dt>

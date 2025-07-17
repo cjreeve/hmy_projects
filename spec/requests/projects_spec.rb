@@ -40,6 +40,16 @@ RSpec.describe "/projects", type: :request do
     end
   end
 
+  describe "GET /show with markdown description" do
+    it "renders markdown as HTML" do
+      project = Project.create!(title: "Markdown Test", manager_name: "Manager", description: "# Heading\n\n**bold** and _italic_ text.")
+      get project_url(project)
+      expect(response.body).to include("<h1>Heading</h1>")
+      expect(response.body).to include("<strong>bold</strong>")
+      expect(response.body).to include("<em>italic</em>")
+    end
+  end
+
   describe "GET /new" do
     it "renders a successful response" do
       get new_project_url
@@ -87,8 +97,8 @@ RSpec.describe "/projects", type: :request do
     it "renders the new template with errors" do
       post projects_url, params: { project: { title: "", manager_name: "" } }
       expect(response.body).to include("There were errors with your submission")
-      expect(response.body).to include("Title can't be blank")
-      expect(response.body).to include("Manager name can't be blank")
+      expect(response.body).to include("Title can&#39;t be blank")
+      expect(response.body).to include("Manager name can&#39;t be blank")
     end
   end
 
