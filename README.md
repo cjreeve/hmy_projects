@@ -7,7 +7,7 @@ This is a modern Ruby on Rails project management tool. It allows users to:
 - Add and view comments on projects
 - View a detailed project log of state and attribute changes
 - Enjoy a clean, responsive UI styled with Tailwind CSS
-- Experience robust, modern Rails 7+ Turbo compatibility (no Rails UJS required)
+- Experience robust, modern Rails 8+ Turbo compatibility (no Rails UJS required)
 
 ## Features
 - **Project workflow:** Draft → Proceeding → Done, with state machine logic
@@ -20,7 +20,7 @@ This is a modern Ruby on Rails project management tool. It allows users to:
 
 ### Prerequisites
 - Ruby 3.1+
-- Rails 7+
+- Rails 8+
 - Node.js & Yarn (for JS dependencies, if needed)
 - SQLite (default) or your preferred DB
 
