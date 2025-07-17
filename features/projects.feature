@@ -5,6 +5,7 @@ Feature: Project listing
   I want to visit the home page
   So that I can see a list of projects
 
+  @javascript
   Scenario: Visiting the home page
     Given there are no projects in the system
     When I visit the home page
@@ -26,3 +27,6 @@ Feature: Project listing
     When I click on the "Complete project" button
     Then I see the state is done and a button to "Restart" the state to "proceeding"
     Then I should see a list of recent state changes "proceeding" and "done"
+    When I click on the Back link
+    Then I click on the Destroy link and confirm
+    Then I am shown the empty project list page with "No projects found"

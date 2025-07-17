@@ -128,4 +128,14 @@ Then('I should see a list of recent state changes {string} and {string}') do |ac
     expect(page).to have_content(action1)
     expect(page).to have_content(action2)
   end
+end
+
+Then('I click on the Destroy link and confirm') do
+  accept_confirm do
+    find('a[id^="destroy-project-link-"]').click
+  end
+end
+
+Then('I am shown the empty project list page with {string}') do |message|
+  expect(page).to have_content(message)
 end 

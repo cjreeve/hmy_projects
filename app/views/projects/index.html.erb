@@ -18,7 +18,7 @@
       <div class="mt-2 space-x-2">
         <%= link_to 'Show', project, class: "text-blue-600 hover:underline mr-2" %>
         <%= link_to 'Edit', edit_project_path(project), class: "text-yellow-600 hover:underline mr-2" %>
-        <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-red-600 hover:underline" %>
+        <%= link_to 'Destroy', project, data: { turbo_method: :delete, turbo_confirm: 'Do you really want to destroy your hard work?' }, id: "destroy-project-link-#{project.id}", class: "text-red-600 hover:underline" %>
       </div>
     </div>
   <% end %>
